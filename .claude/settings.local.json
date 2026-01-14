@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php artisan route:list:*)",
+      "Bash(composer require:*)",
+      "Bash(php artisan:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(xcopy:*)",
+      "Bash(magick:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
