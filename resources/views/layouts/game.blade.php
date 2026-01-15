@@ -338,13 +338,50 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 968px) {
+            .header {
+                padding: 1.25rem 1.5rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: flex-start;
+            }
+
+            .logo-title-container {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .nav {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
+            .nav a, .nav-logout-btn {
+                flex: 1 1 auto;
+                min-width: fit-content;
+                text-align: center;
+            }
+
+            .container {
+                margin: 1.5rem auto 3rem;
+                padding: 0 1.5rem;
+            }
+        }
+
         @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+            }
+
             .header-logo {
                 height: 45px;
             }
 
             .logo-title-container {
-                gap: 1rem;
+                gap: 0.75rem;
             }
 
             .header h1 {
@@ -353,20 +390,106 @@
 
             .header h1::after {
                 right: -35px;
-                font-size: 1.5rem;
+                top: -5px;
+                font-size: 1.3rem;
             }
 
             .nav {
-                flex-direction: column;
                 gap: 0.5rem;
+                flex-direction: row;
+            }
+
+            .nav a, .nav-logout-btn {
+                padding: 0.65rem 1rem;
+                font-size: 0.85rem;
+                border-radius: 8px;
             }
 
             .card {
-                padding: 2rem;
+                padding: 2rem 1.5rem;
             }
 
             .container {
                 padding: 0 1rem;
+                margin: 1rem auto 2rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.8rem;
+                font-size: 0.9rem;
+            }
+
+            .badge {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 0.75rem;
+            }
+
+            .header-logo {
+                height: 38px;
+            }
+
+            .header h1 {
+                font-size: 1.2rem;
+            }
+
+            .header h1::after {
+                right: -30px;
+                top: -3px;
+                font-size: 1.1rem;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 0.4rem;
+            }
+
+            .nav a, .nav-logout-btn {
+                width: 100%;
+                padding: 0.6rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .card {
+                padding: 1.5rem 1rem;
+            }
+
+            .container {
+                padding: 0 0.75rem;
+            }
+
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.85rem;
+                border-radius: 10px;
+            }
+
+            .badge {
+                padding: 0.35rem 0.7rem;
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .header-logo {
+                height: 32px;
+            }
+
+            .header h1 {
+                font-size: 1rem;
+            }
+
+            .header h1::after {
+                display: none;
+            }
+
+            .nav a, .nav-logout-btn {
+                font-size: 0.75rem;
             }
         }
     </style>

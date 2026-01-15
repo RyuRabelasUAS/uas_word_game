@@ -57,6 +57,8 @@
         box-shadow: 0 15px 40px rgba(15, 26, 250, 0.15);
         border: 3px solid rgba(255, 242, 0, 0.3);
         transition: all 0.3s ease;
+        max-width: 100%;
+        width: fit-content;
     }
 
     .grid-container:hover {
@@ -71,6 +73,8 @@
         background: var(--primary-blue);
         padding: 3px;
         border-radius: 15px;
+        width: fit-content;
+        margin: 0 auto;
     }
 
     .cell {
@@ -82,12 +86,21 @@
         font-weight: 700;
         font-size: 1.05rem;
         font-family: 'Poppins', sans-serif;
-        background: white;
+        background: #d1d5db;
         cursor: pointer;
         transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         border-radius: 8px;
-        color: var(--primary-blue);
+        color: #1e293b;
         position: relative;
+    }
+
+    /* Dynamic grid sizing based on grid size */
+    @media (max-width: 968px) {
+        .cell {
+            width: calc(min(40px, (100vw - 8rem) / var(--grid-size, 10)));
+            height: calc(min(40px, (100vw - 8rem) / var(--grid-size, 10)));
+            font-size: clamp(0.65rem, 1.5vw, 1.05rem);
+        }
     }
 
     .cell-number {
@@ -102,20 +115,20 @@
     }
 
     .cell:hover {
-        background: var(--light-yellow);
+        background: #9ca3af;
         transform: scale(1.15);
         z-index: 10;
     }
 
     .cell.selected {
-        background: var(--primary-blue);
-        color: var(--primary-yellow);
+        background: #1e40af;
+        color: #fbbf24;
         transform: scale(1.1);
     }
 
     .cell.found {
-        background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--light-yellow) 100%);
-        color: var(--primary-blue);
+        background: linear-gradient(135deg, #ca8a04 0%, #eab308 100%);
+        color: #1e293b;
         animation: pulse 0.5s ease;
     }
 
@@ -443,20 +456,119 @@
         }
     }
 
+    /* Tablet and below */
+    @media (max-width: 968px) {
+        .level-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .level-info {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .level-title-wrapper h2 {
+            font-size: 1.8rem;
+        }
+
+        .level-title-wrapper p {
+            font-size: 0.95rem;
+        }
+
+        .sidebar {
+            position: static;
+            top: auto;
+        }
+
+        .stats {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .timer-box {
+            grid-column: 1 / -1;
+        }
+    }
+
+    /* Mobile landscape and below */
     @media (max-width: 768px) {
+        .level-title-wrapper h2 {
+            font-size: 1.5rem;
+        }
+
+        .level-badges {
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .grid-container {
+            padding: 0.75rem;
+            margin: 0 auto;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
         .grid {
             gap: 2px;
             padding: 2px;
         }
 
         .cell {
-            width: 30px;
-            height: 30px;
-            font-size: 0.9rem;
+            width: calc(min(32px, (100vw - 6rem) / var(--grid-size, 10)));
+            height: calc(min(32px, (100vw - 6rem) / var(--grid-size, 10)));
+            font-size: clamp(0.6rem, 1.2vw, 0.85rem);
+        }
+
+        .cell-number {
+            font-size: clamp(0.35rem, 0.8vw, 0.5rem);
+            top: 1px;
+            left: 1px;
+        }
+
+        .cell-input {
+            font-size: clamp(0.6rem, 1.2vw, 0.85rem);
+        }
+
+        .sidebar {
+            padding: 1.5rem;
+        }
+
+        .sidebar h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-box {
+            padding: 1rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+        }
+
+        .word-list {
+            max-height: 300px;
+        }
+
+        .word-item {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .word-text {
+            font-size: 1rem;
+        }
+
+        .clue-text {
+            font-size: 0.85rem;
         }
 
         .victory-message {
-            padding: 2rem;
+            padding: 2rem 1.5rem;
             max-width: 90%;
         }
 
@@ -465,7 +577,150 @@
         }
 
         .victory-message h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .victory-message p {
+            font-size: 1rem;
+        }
+    }
+
+    /* Small mobile devices */
+    @media (max-width: 480px) {
+        .card {
+            padding: 1rem;
+        }
+
+        .level-title-wrapper h2 {
+            font-size: 1.3rem;
+        }
+
+        .level-title-wrapper p {
+            font-size: 0.85rem;
+        }
+
+        .grid-container {
+            padding: 0.5rem;
+            border-width: 2px;
+        }
+
+        .grid {
+            gap: 1.5px;
+            padding: 1.5px;
+        }
+
+        .cell {
+            width: calc(min(26px, (100vw - 4rem) / var(--grid-size, 10)));
+            height: calc(min(26px, (100vw - 4rem) / var(--grid-size, 10)));
+            font-size: clamp(0.5rem, 1vw, 0.75rem);
+            border-radius: 4px;
+        }
+
+        .cell-number {
+            font-size: clamp(0.3rem, 0.6vw, 0.45rem);
+        }
+
+        .cell-input {
+            font-size: clamp(0.5rem, 1vw, 0.75rem);
+        }
+
+        .sidebar {
+            padding: 1rem;
+            border-width: 2px;
+        }
+
+        .sidebar h3 {
+            font-size: 1.1rem;
+        }
+
+        .progress-bar {
+            height: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-box {
+            padding: 0.75rem;
+            border-radius: 15px;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+        }
+
+        .word-list {
+            max-height: 250px;
+        }
+
+        .word-item {
+            padding: 0.6rem;
+        }
+
+        .word-text {
+            font-size: 0.9rem;
+        }
+
+        .clue-text {
+            font-size: 0.75rem;
+        }
+
+        .victory-message {
+            padding: 1.5rem 1rem;
+        }
+
+        .victory-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .victory-message h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .victory-message p {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.85rem;
+        }
+    }
+
+    /* Extra small devices (very small phones) */
+    @media (max-width: 360px) {
+        .grid-container {
+            padding: 0.35rem;
+            border-width: 1.5px;
+        }
+
+        .grid {
+            gap: 1px;
+            padding: 1px;
+        }
+
+        .cell {
+            width: calc((100vw - 3.5rem) / var(--grid-size, 10));
+            height: calc((100vw - 3.5rem) / var(--grid-size, 10));
+            font-size: clamp(0.45rem, 0.9vw, 0.65rem);
+            border-radius: 3px;
+        }
+
+        .cell-number {
+            font-size: clamp(0.25rem, 0.5vw, 0.4rem);
+        }
+
+        .cell-input {
+            font-size: clamp(0.45rem, 0.9vw, 0.65rem);
+        }
+
+        .word-text {
+            font-size: 0.85rem;
         }
     }
 </style>
@@ -499,7 +754,7 @@
     <div class="game-container">
         <div>
             <div class="grid-container">
-                <div class="grid" id="wordGrid" style="grid-template-columns: repeat({{ $level->grid_size }}, 40px);">
+                <div class="grid" id="wordGrid" style="--grid-size: {{ $level->grid_size }}; grid-template-columns: repeat({{ $level->grid_size }}, 40px);">
                     @php
                         $cellNumbers = [];
                         if($level->game_type === 'crossword' && isset($grid['placed'])) {
@@ -623,6 +878,19 @@
 
     let startTime = Date.now();
     let timerInterval = null;
+
+    // Make grid responsive
+    function updateGridColumns() {
+        const cells = document.querySelectorAll('.cell:not(.empty)');
+        if (cells.length > 0) {
+            const cellWidth = cells[0].offsetWidth;
+            grid.style.gridTemplateColumns = `repeat(${gridSize}, ${cellWidth}px)`;
+        }
+    }
+
+    // Update grid on load and resize
+    window.addEventListener('load', updateGridColumns);
+    window.addEventListener('resize', updateGridColumns);
 
     // Start timer
     startTimer();

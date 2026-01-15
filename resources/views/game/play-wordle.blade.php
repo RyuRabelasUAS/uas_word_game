@@ -378,9 +378,79 @@
         justify-content: center;
     }
 
+    /* Tablet and below */
+    @media (max-width: 968px) {
+        .level-header {
+            margin-bottom: 2rem;
+        }
+
+        .level-title h2 {
+            font-size: 2.5rem;
+        }
+
+        .level-title p {
+            font-size: 1rem;
+        }
+
+        .level-badges {
+            flex-wrap: wrap;
+        }
+
+        .stats-panel {
+            padding: 2rem;
+        }
+
+        .stats-grid {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
+    /* Mobile landscape and below */
     @media (max-width: 768px) {
+        .card {
+            padding: 1.5rem 1rem;
+        }
+
+        .level-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .level-title h2 {
+            font-size: 2rem;
+        }
+
+        .level-title p {
+            font-size: 0.95rem;
+        }
+
+        .level-badges {
+            gap: 0.5rem;
+        }
+
         .wordle-container {
             padding: 0 0.5rem;
+        }
+
+        .stats-panel {
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-grid {
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+        }
+
+        .stat-box {
+            padding: 1rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
         }
 
         .wordle-board {
@@ -396,10 +466,15 @@
 
         .wordle-grid {
             gap: 5px;
+            margin-bottom: 1.5rem;
         }
 
         .wordle-row {
             gap: 5px;
+        }
+
+        .keyboard {
+            margin-top: 1.5rem;
         }
 
         .key {
@@ -410,49 +485,179 @@
 
         .key.wide {
             min-width: 45px;
+            font-size: 0.65rem;
         }
 
         .keyboard-row {
             gap: 4px;
+            margin-bottom: 6px;
         }
 
         .victory-card {
             padding: 2rem;
             margin: 1rem;
+            max-width: 90%;
         }
 
-        .stats-grid {
-            grid-template-columns: 1fr;
-            gap: 0.75rem;
+        .victory-icon {
+            font-size: 4rem;
         }
 
-        .stat-box {
-            padding: 1rem;
-        }
-
-        .stat-value {
+        .victory-card h2 {
             font-size: 2rem;
+        }
+
+        .victory-card p {
+            font-size: 1rem;
+        }
+
+        .victory-word {
+            font-size: 1.5rem;
+        }
+
+        .actions {
+            flex-direction: column;
+        }
+
+        .btn {
+            width: 100%;
         }
     }
 
+    /* Small mobile devices */
     @media (max-width: 480px) {
+        .card {
+            padding: 1rem 0.75rem;
+        }
+
+        .level-title h2 {
+            font-size: 1.6rem;
+        }
+
+        .level-title p {
+            font-size: 0.85rem;
+        }
+
+        .level-badges {
+            font-size: 0.8rem;
+        }
+
+        .stats-panel {
+            padding: 1rem;
+            border-radius: 16px;
+        }
+
+        .stat-value {
+            font-size: 1.6rem;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+        }
+
+        .wordle-board {
+            padding: 1rem 0.75rem;
+            border-radius: 16px;
+        }
+
         .wordle-tile {
             max-width: 42px;
             min-width: 30px;
+            border-radius: 6px;
+        }
+
+        .wordle-grid {
+            gap: 4px;
+        }
+
+        .wordle-row {
+            gap: 4px;
         }
 
         .keyboard {
-            margin-top: 1.5rem;
+            margin-top: 1rem;
         }
 
         .key {
             min-width: 24px;
             height: 42px;
             font-size: 0.7rem;
+            border-radius: 6px;
         }
 
         .key.wide {
             min-width: 40px;
+            font-size: 0.6rem;
+        }
+
+        .keyboard-row {
+            gap: 3px;
+            margin-bottom: 5px;
+        }
+
+        .victory-card {
+            padding: 1.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .victory-icon {
+            font-size: 3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .victory-card h2 {
+            font-size: 1.6rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .victory-card p {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .victory-stats {
+            padding: 1rem;
+        }
+
+        .victory-word {
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+        }
+
+        .btn {
+            padding: 0.7rem 1rem;
+            font-size: 0.85rem;
+        }
+    }
+
+    /* Extra small devices */
+    @media (max-width: 360px) {
+        .level-title h2 {
+            font-size: 1.4rem;
+        }
+
+        .wordle-tile {
+            max-width: 35px;
+            min-width: 26px;
+        }
+
+        .key {
+            min-width: 20px;
+            height: 38px;
+            font-size: 0.65rem;
+        }
+
+        .key.wide {
+            min-width: 35px;
+            font-size: 0.55rem;
+        }
+
+        .keyboard-row {
+            gap: 2px;
+        }
+
+        .victory-word {
+            font-size: 1.1rem;
         }
     }
 </style>

@@ -234,9 +234,47 @@
         line-height: 1.6;
     }
 
+    .leaderboard-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        gap: 1rem;
+    }
+
+    .leaderboard-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--primary-yellow), var(--primary-blue));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: 0;
+    }
+
     @media (max-width: 768px) {
         .page-title h2 {
             font-size: 2.5rem;
+        }
+
+        .leaderboard-preview {
+            padding: 1.5rem !important;
+        }
+
+        .leaderboard-header {
+            flex-direction: column;
+            align-items: flex-start !important;
+            gap: 1rem;
+        }
+
+        .leaderboard-title {
+            font-size: 1.25rem;
+        }
+
+        .leaderboard-header .btn {
+            width: 100%;
+            text-align: center;
+            padding: 0.875rem 1.25rem !important;
         }
 
         .levels-grid {
@@ -253,6 +291,49 @@
             font-size: 1.3rem;
         }
     }
+
+    @media (max-width: 480px) {
+        .page-title h2 {
+            font-size: 2rem;
+        }
+
+        .page-title p {
+            font-size: 1rem;
+        }
+
+        .leaderboard-preview {
+            padding: 1rem !important;
+            border-radius: 16px !important;
+        }
+
+        .leaderboard-title {
+            font-size: 1.1rem;
+        }
+
+        .leaderboard-header .btn {
+            font-size: 0.85rem;
+            padding: 0.75rem 1rem !important;
+        }
+
+        .level-card-header,
+        .level-card-body {
+            padding: 1.25rem;
+        }
+
+        .level-title {
+            font-size: 1.2rem;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .page-title h2 {
+            font-size: 1.6rem;
+        }
+
+        .leaderboard-title {
+            font-size: 1rem;
+        }
+    }
 </style>
 @endpush
 
@@ -265,8 +346,8 @@
 
     <!-- Quick Leaderboard Preview -->
     <div class="leaderboard-preview" data-aos="fade-up" data-aos-delay="300" style="background: rgba(19, 24, 41, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(0, 217, 255, 0.2); border-radius: 20px; padding: 2rem; margin-bottom: 3rem;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-            <h3 style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, var(--primary-yellow), var(--primary-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0;">🏆 TOP PLAYERS</h3>
+        <div class="leaderboard-header">
+            <h3 class="leaderboard-title">🏆 TOP PLAYERS</h3>
             <a href="{{ route('leaderboard.index') }}" class="btn btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">View Full Leaderboard →</a>
         </div>
         <div id="topScores" style="display: grid; gap: 1rem;">

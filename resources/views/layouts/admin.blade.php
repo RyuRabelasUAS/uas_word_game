@@ -477,37 +477,156 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
+        @media (max-width: 968px) {
+            .header {
+                padding: 1.25rem 1.5rem;
+            }
+
+            .header h1 {
+                font-size: 1.4rem;
             }
 
             .nav {
                 flex-wrap: wrap;
+                gap: 0.75rem;
             }
 
-            .card {
-                padding: 1.5rem;
+            .nav a {
+                padding: 0.65rem 1.2rem;
+                font-size: 0.875rem;
+            }
+
+            .container {
+                padding: 0 1.5rem 3rem 1.5rem;
+                margin: 1.5rem auto;
             }
 
             .card-header {
+                padding: 1.5rem;
+            }
+
+            .card-header h2 {
+                font-size: 1.4rem;
+            }
+
+            .card-body {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.2rem;
+            }
+
+            .header img {
+                height: 40px !important;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .header-content > div:first-child {
+                width: 100%;
+            }
+
+            .header-content > div:first-child > div {
+                margin-bottom: 0.75rem !important;
+            }
+
+            .user-info {
+                width: 100%;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
+            .nav {
+                width: 100%;
+                gap: 0.5rem;
+            }
+
+            .nav a {
+                flex: 1 1 calc(50% - 0.25rem);
+                text-align: center;
+                padding: 0.6rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .container {
+                padding: 0 1rem 2rem 1rem;
+                margin: 1rem auto;
+            }
+
+            .card {
+                border-radius: 16px;
+                margin-bottom: 1.5rem;
+            }
+
+            .card-header {
+                padding: 1.25rem;
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 1rem;
             }
 
-            table {
+            .card-header h2 {
+                font-size: 1.3rem;
+            }
+
+            .card-body {
+                padding: 1.5rem;
+            }
+
+            .btn {
+                padding: 0.65rem 1.25rem;
+                font-size: 0.85rem;
+                border-radius: 10px;
+            }
+
+            .btn-sm {
+                padding: 0.5rem 1rem;
                 font-size: 0.8rem;
             }
 
+            /* Table responsive */
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+                font-size: 0.8rem;
+            }
+
+            thead, tbody, tr {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+
             th, td {
-                padding: 0.65rem 0.5rem;
+                padding: 0.75rem 0.5rem;
                 font-size: 0.8rem;
             }
 
             th {
                 font-size: 0.7rem;
+            }
+
+            th:first-child,
+            td:first-child {
+                padding-left: 1rem;
+            }
+
+            th:last-child,
+            td:last-child {
+                padding-right: 1rem;
             }
 
             .action-buttons {
@@ -517,13 +636,161 @@
 
             .action-buttons .btn-sm {
                 width: 100%;
-                padding: 0.5rem 0.75rem;
-                font-size: 0.8rem;
+                text-align: center;
             }
 
             .badge {
-                padding: 0.3rem 0.7rem;
+                padding: 0.35rem 0.75rem;
+                font-size: 0.7rem;
+            }
+
+            .form-control {
+                padding: 0.9rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .form-group {
+                margin-bottom: 1.5rem;
+            }
+
+            .alert {
+                padding: 0.875rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 0.75rem;
+            }
+
+            .header h1 {
+                font-size: 1rem;
+            }
+
+            .header img {
+                height: 35px !important;
+            }
+
+            .nav a {
+                flex: 1 1 100%;
+                padding: 0.55rem 0.7rem;
                 font-size: 0.75rem;
+            }
+
+            .user-info {
+                font-size: 0.85rem;
+            }
+
+            .btn-logout {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .container {
+                padding: 0 0.75rem 1.5rem 0.75rem;
+            }
+
+            .card {
+                border-radius: 12px;
+            }
+
+            .card-header {
+                padding: 1rem;
+            }
+
+            .card-header h2 {
+                font-size: 1.1rem;
+            }
+
+            .card-body {
+                padding: 1rem;
+            }
+
+            .btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .btn-sm {
+                padding: 0.45rem 0.85rem;
+                font-size: 0.75rem;
+            }
+
+            table {
+                font-size: 0.75rem;
+            }
+
+            th, td {
+                padding: 0.6rem 0.4rem;
+                font-size: 0.75rem;
+            }
+
+            th {
+                font-size: 0.65rem;
+            }
+
+            th:first-child,
+            td:first-child {
+                padding-left: 0.75rem;
+            }
+
+            th:last-child,
+            td:last-child {
+                padding-right: 0.75rem;
+            }
+
+            .form-control {
+                padding: 0.8rem 1rem;
+                font-size: 0.85rem;
+                border-radius: 10px;
+            }
+
+            .form-group label {
+                font-size: 0.8rem;
+                margin-bottom: 0.65rem;
+            }
+
+            .badge {
+                padding: 0.3rem 0.65rem;
+                font-size: 0.65rem;
+            }
+
+            .alert {
+                padding: 0.75rem 0.875rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .header h1 {
+                font-size: 0.9rem;
+            }
+
+            .header img {
+                height: 30px !important;
+            }
+
+            .nav a {
+                font-size: 0.7rem;
+                padding: 0.5rem 0.6rem;
+            }
+
+            .card-header h2 {
+                font-size: 1rem;
+            }
+
+            table {
+                font-size: 0.7rem;
+            }
+
+            th, td {
+                padding: 0.5rem 0.3rem;
+                font-size: 0.7rem;
+            }
+
+            th {
+                font-size: 0.6rem;
             }
         }
     </style>

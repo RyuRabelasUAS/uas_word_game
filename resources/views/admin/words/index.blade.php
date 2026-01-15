@@ -210,9 +210,12 @@
         .data-table tbody td::before {
             content: attr(data-label);
             font-weight: bold;
-            display: inline-block;
-            width: 100px;
+            display: block;
+            margin-bottom: 0.5rem;
             color: var(--primary-blue);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
     }
 </style>

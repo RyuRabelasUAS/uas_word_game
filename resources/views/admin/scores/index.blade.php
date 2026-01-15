@@ -138,29 +138,29 @@
             <tbody>
                 @forelse($scores as $score)
                 <tr>
-                    <td><span class="badge badge-id">#{{ $score->id }}</span></td>
-                    <td>
+                    <td data-label="ID"><span class="badge badge-id">#{{ $score->id }}</span></td>
+                    <td data-label="Player">
                         <div class="user-info">
                             <div class="user-avatar">{{ substr($score->user->name, 0, 1) }}</div>
                             <span>{{ $score->user->name }}</span>
                         </div>
                     </td>
-                    <td class="text-muted">{{ $score->user->email }}</td>
-                    <td>
+                    <td data-label="Email" class="text-muted">{{ $score->user->email }}</td>
+                    <td data-label="Level">
                         <div class="level-badge">{{ $score->level->title }}</div>
                     </td>
-                    <td>
+                    <td data-label="Game Type">
                         <span class="game-type-badge game-type-{{ $score->game_type }}">
                             {{ ucfirst($score->game_type) }}
                         </span>
                     </td>
-                    <td>
+                    <td data-label="Score">
                         <span class="score-badge">{{ number_format($score->score) }}</span>
                     </td>
-                    <td class="text-muted">
+                    <td data-label="Time" class="text-muted">
                         {{ gmdate('i:s', $score->time_seconds) }}
                     </td>
-                    <td class="text-muted">
+                    <td data-label="Completed" class="text-muted">
                         {{ $score->created_at->format('M d, Y H:i') }}
                     </td>
                 </tr>
@@ -711,6 +711,154 @@
 .modal-btn-danger:active,
 .modal-btn-cancel:active {
     transform: translateY(0);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .vault-title {
+        font-size: 2rem;
+        letter-spacing: 4px;
+    }
+
+    .vault-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .filters-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .filter-actions {
+        flex-direction: column;
+    }
+
+    .btn-filter {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .stat-card {
+        padding: 1.25rem;
+    }
+
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+
+    .stat-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .stat-content p {
+        font-size: 0.85rem;
+    }
+
+    /* Mobile table styles */
+    .data-table thead {
+        display: none;
+    }
+
+    .data-table tbody tr {
+        display: block;
+        margin-bottom: 1.5rem;
+        padding: 1.25rem;
+        border: 1px solid rgba(0, 217, 255, 0.15);
+        border-radius: 16px;
+    }
+
+    .data-table tbody td {
+        display: block;
+        padding: 0.75rem 0;
+        border: none;
+        text-align: left;
+    }
+
+    .data-table tbody td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--primary-blue);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .user-info {
+        flex-direction: row;
+    }
+
+    .badge-id,
+    .level-badge,
+    .game-type-badge,
+    .score-badge {
+        display: inline-block;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .vault-title {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+
+    .filter-card {
+        padding: 1.5rem;
+    }
+
+    .btn-filter {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+
+    .modal-container {
+        width: 95%;
+    }
+
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 1.5rem;
+    }
+
+    .modal-icon-warning {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+
+    .modal-header h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .vault-title {
+        font-size: 1.25rem;
+        letter-spacing: 1px;
+    }
+
+    .vault-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .filter-card {
+        padding: 1rem;
+    }
+
+    .btn-filter {
+        padding: 0.65rem 1rem;
+        font-size: 0.85rem;
+    }
 }
 </style>
 
